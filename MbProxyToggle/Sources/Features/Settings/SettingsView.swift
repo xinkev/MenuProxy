@@ -2,16 +2,16 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
-    @State private var viewModel: SettingsViewModel = .init()
+    @State private var viewModel: SettingsViewModel = .init(kvStore: UserDefaults.standard)
 
     var body: some View {
         VStack {
             Form {
-                ForEach($viewModel.proxies) { $proxy in
-                    ProxyField(proxy: $proxy)
+                ForEach(viewModel.proxyTypes, id: \.self) { type in
+                    ProxyField(proxy: viewModel.proxySettingBinding(for: type))
                 }
                 LabeledContent("Version") {
-                    Text(viewModel.appVersion)
+                    Text(AppUtils.version)
                 }
             }
             .formStyle(.grouped)
@@ -25,6 +25,9 @@ struct SettingsView: View {
                 }
                 .buttonStyle(.bordered)
                 Button("Save") {
+                    viewModel.onClickSave {
+                        dismiss()
+                    }
                 }
                 .buttonStyle(.borderedProminent)
             }

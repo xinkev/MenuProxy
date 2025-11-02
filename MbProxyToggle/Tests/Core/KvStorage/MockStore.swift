@@ -12,10 +12,10 @@ class MockStore: KvStore {
     }
 
     func setData<T>(_ key: KvStoreKey<T>, _ value: T) where T : Encodable {
-       //
+       storage[key.rawValue] = value;
     }
 
     func getData<T>(_ key: KvStoreKey<T>) -> T? where T : Decodable {
-        return nil
+        return storage[key.rawValue] as? T
     }
 }

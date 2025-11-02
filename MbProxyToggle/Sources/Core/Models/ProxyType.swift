@@ -1,4 +1,4 @@
-enum ProxyType: String, CaseIterable {
+enum ProxyType: String, CaseIterable, Codable {
     case http
     case https
     case socks

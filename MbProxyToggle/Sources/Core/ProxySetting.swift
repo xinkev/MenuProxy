@@ -1,4 +1,4 @@
-struct ProxySetting: Identifiable {
+struct ProxySetting: Identifiable, Codable, Hashable, Equatable {
     // Make this struct identifiable by type
     var id: ProxyType { type }
     let type: ProxyType

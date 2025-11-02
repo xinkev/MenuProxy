@@ -10,4 +10,14 @@ struct ProxySetting: Identifiable, Codable, Hashable, Equatable {
         self.address = ""
         self.enabled = false
     }
+
+    init(
+        _ address: String,
+        type: ProxyType,
+        enabled: Bool
+    ) {
+        self.type = type
+        self.address = address
+        self.enabled = enabled
+    }
 }

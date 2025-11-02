@@ -7,9 +7,11 @@ let project = Project(
             name: "MbProxyToggle",
             destinations: .macOS,
             product: .app,
-            bundleId: "dev.tuist.MbProxyToggle",
+            bundleId: "com.xinkev.MbProxyToggle",
             infoPlist: .extendingDefault(with: [
-                "LSUIElement": true
+                "LSUIElement": true,
+                "CFBundleShortVersionString": "1.0.0",
+                "CFBundleVersion": "1"
             ]),
             buildableFolders: [
                 "MbProxyToggle/Sources",
@@ -30,3 +32,4 @@ let project = Project(
         ),
     ],
 )
+

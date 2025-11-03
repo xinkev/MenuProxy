@@ -14,6 +14,12 @@ struct Command {
         self.arguments = []
     }
 
+    func args(_ args: [String]) -> Command {
+        var copy = self
+        copy.arguments += args
+        return copy
+    }
+
     func arg(_ value: String) -> Command {
         var copy = self
         copy.arguments.append(value)

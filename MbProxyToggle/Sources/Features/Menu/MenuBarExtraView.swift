@@ -1,13 +1,19 @@
 import SwiftUI
 
-public struct AppMenuBarExtra: Scene {
-    @State private var isOn = false
+public struct MenuBarExtraView: Scene {
+    @State private var viewModel = MenuBarExtraViewModel(
+        kvStore: UserDefaults.standard, netWorkSetup: .init())
 
     public var body: some Scene {
-        MenuBarExtra("Example", systemImage: isOn ? "lightbulb.fill" : "lightbulb") {
-            Menu(isOn: $isOn)
+        MenuBarExtra("Example", systemImage: viewModel.isSwitchOn ? "lightbulb.fill" : "lightbulb")
+        {
+            Menu(isOn: $viewModel.isSwitchOn)
         }
         .menuBarExtraStyle(.menu)
+        .onChange(of: viewModel.isSwitchOn) { oldState, newState in
+            // Until there is a way to observe Observable's props continuously
+            viewModel.handleToggleSwitch(oldState, newState)
+        }
     }
 }
 

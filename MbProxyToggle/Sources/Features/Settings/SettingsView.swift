@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.appearsActive) var appearsActive
     @State private var viewModel: SettingsViewModel = .init(kvStore: UserDefaults.standard)
 
     var body: some View {
@@ -33,6 +34,12 @@ struct SettingsView: View {
             }
             .padding()
             .background(.regularMaterial)
+        }
+        .onChange(of: appearsActive) { _, active in
+            // Dismiss when window is not focused
+            if !active {
+                dismiss()
+            }
         }
     }
 }

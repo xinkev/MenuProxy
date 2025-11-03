@@ -1,6 +1,6 @@
 import Testing
 import Foundation
-@testable import MbProxyToggle
+@testable import MenuProxy
 
 extension KvStoreKey where T == String {
     static let testString = KvStoreKey(rawValue: "string")

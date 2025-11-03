@@ -1,34 +1,34 @@
 import ProjectDescription
 
 let project = Project(
-    name: "MbProxyToggle",
+    name: "MenuProxy",
     targets: [
         .target(
-            name: "MbProxyToggle",
+            name: "MenuProxy",
             destinations: .macOS,
             product: .app,
-            bundleId: "com.xinkev.MbProxyToggle",
+            bundleId: "com.xinkev.menuproxy",
             infoPlist: .extendingDefault(with: [
                 "LSUIElement": true,
                 "CFBundleShortVersionString": "1.0.0",
                 "CFBundleVersion": "1"
             ]),
             buildableFolders: [
-                "MbProxyToggle/Sources",
-                "MbProxyToggle/Resources",
+                "MenuProxy/Sources",
+                "MenuProxy/Resources",
             ],
             dependencies: []
         ),
         .target(
-            name: "MbProxyToggleTests",
+            name: "MenuProxyTests",
             destinations: .macOS,
             product: .unitTests,
-            bundleId: "dev.tuist.MbProxyToggleTests",
+            bundleId: "com.xinkev.menuproxy.tests",
             infoPlist: .default,
             buildableFolders: [
-                "MbProxyToggle/Tests"
+                "MenuProxy/Tests"
             ],
-            dependencies: [.target(name: "MbProxyToggle")]
+            dependencies: [.target(name: "MenuProxy")]
         ),
     ],
 )

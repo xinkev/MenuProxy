@@ -1,7 +1,7 @@
 import Observation
 import Testing
 
-@testable import MbProxyToggle
+@testable import MenuProxy
 
 class SettingsViewModelTest {
     let mockStore: MockStore

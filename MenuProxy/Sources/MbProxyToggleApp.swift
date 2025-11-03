@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct MbProxyToggleApp: App {
+struct MenuProxyApp: App {
     var body: some Scene {
         SettingsWindow()
         MenuBarExtraView()

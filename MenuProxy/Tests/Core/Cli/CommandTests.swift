@@ -1,6 +1,6 @@
 import Testing
 
-@testable import MbProxyToggle
+@testable import MenuProxy
 
 final class CommandTests {
     @Test("Runs a successful command")

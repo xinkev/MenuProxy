@@ -1,5 +1,5 @@
 
-@testable import MbProxyToggle
+@testable import MenuProxy
 
 class MockStore: KvStore {
     var storage: [String: Any] = [:]

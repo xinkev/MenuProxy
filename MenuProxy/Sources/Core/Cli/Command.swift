@@ -40,6 +40,7 @@ struct Command {
         process.standardOutput = pipe
         process.standardError = pipe
 
+        print("running: \(toString())")
         try process.run()
         process.waitUntilExit()
 

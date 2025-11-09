@@ -18,4 +18,8 @@ class MockStore: KvStore {
     func getData<T>(_ key: KvStoreKey<T>) -> T? where T : Decodable {
         return storage[key.rawValue] as? T
     }
+    
+    func clear() {
+        storage.removeAll()
+    }
 }
